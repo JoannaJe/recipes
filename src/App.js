@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Paper, Container, Button} from '@material-ui/core'
 import './App.css';
 import {makeStyles} from '@material-ui/styles'
@@ -23,42 +23,44 @@ const useStyles = makeStyles(() => ({
   }
 }));
 
+const tomatoes = {
+  name: "pomidory",
+  unit: "kg",
+  quantity: 3.0
+}
+
+const carrot = {
+  name: "marchewka",
+  unit: "kg",
+  quantity: 1.5
+}
+
+const garlic = {
+  name: "czosnek",
+  unit: "szt.",
+  quantity: 8
+}
+
+const bananas = {
+  name: "banany",
+  unit: "szt.",
+  quantity: 3
+}
+
 function App() {
 
   const classes = useStyles();
 
-  const tomatoes = {
-    name: "pomidory",
-    unit: "kg",
-    quantity: 3.0
-  }
-
-  const carrot = {
-    name: "marchewka",
-    unit: "kg",
-    quantity: 1.5
-  }
-
-  const garlic = {
-    name: "czosnek",
-    unit: "szt.",
-    quantity: 8
-  }
-
-  const bananas = {
-    name: "banany",
-    unit: "szt.",
-    quantity: 3
-  }
-
-  const ingredients = [carrot, garlic, bananas];
+  const [ingredients, setIngredients] = useState([carrot, garlic, bananas]);
   const recipes = ["pizza", "zupa pomidorowa spod Szrenicy", "zupa ogórkowa"];
-
+  
   return (
     <>
     <Container className={classes.root}>
       <Paper variant="outlined" className={classes.column}>
-        <Ingredients ingredientsList={ingredients}/>
+        <Ingredients ingredientsList={ingredients} removeIngredient={name => {
+          setIngredients(ingredients.filter(ing => ing.name !== name));
+        }}/>
         <Button fullWidth="true" className={classes.button} variant="contained" color="primary">Dodaj składnik</Button>
       </Paper>
       <Paper variant="outlined" className={classes.column}>

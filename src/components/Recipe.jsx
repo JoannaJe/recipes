@@ -28,7 +28,7 @@ export const Recipe = ({name}) => {
 
     return (<Card className={classes.root}>
                 <CardMedia className={classes.media}
-                    image="https://www.everyday-delicious.pl/wp-content/uploads/2018/02/sa%C5%82atka-z-suszonymi-pomidorami-oliwkami-i-fet%C4%85-sun-dried-tomatoes-black-olives-and-feta-salad-www.maine-cook.com_-600x802.jpg"
+                    image="https://cataas.com/cat"
                 />
                 <CardContent className={classes.titleBlock}>
                     <Typography variant="h6" className={classes.title}>

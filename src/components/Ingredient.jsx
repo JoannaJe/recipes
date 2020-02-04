@@ -23,15 +23,18 @@ const useStyles = makeStyles(() => ({
     },
     avatar: {
         backgroundColor: "#3d5c5c",
+    },
+    names: {
+        textTransform: "uppercase",
     }
 
 }));
 
-export const Ingredient = ({ingredient}) => {
+export const Ingredient = ({ingredient, removeIngredient = f => f}) => {
     const classes = useStyles();
     return (
     <AppBar className={classes.root} position="static">
-        <p className={classes.itemBox}>{ingredient.name}</p>
+        <p className={`${classes.itemBox} ${classes.names}`}>{ingredient.name}</p>
         <p className={classes.itemBox}>{ingredient.unit}</p>
         <p className={classes.itemBox}>{ingredient.quantity}</p>
         <div className={`${classes.itemBox} ${classes.centerElem}`}>
@@ -41,7 +44,7 @@ export const Ingredient = ({ingredient}) => {
             <Avatar className={classes.avatar}>
                 <GoDash/>
             </Avatar>
-            <Avatar className={classes.avatar}>
+            <Avatar className={classes.avatar} onClick={() => removeIngredient(ingredient.name)}>
                 <GoX/>
             </Avatar>
         </div>
