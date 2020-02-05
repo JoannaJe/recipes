@@ -2,6 +2,8 @@ import { AppBar, Avatar } from "@material-ui/core";
 import React from "react";
 import {GoPlus, GoDash, GoX} from "react-icons/go"
 import { makeStyles } from "@material-ui/styles";
+import {IngredientsProvider} from "../context/IngredientsProvider"
+import {useIngredients} from "../hooks/ingredients-hooks";
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -30,8 +32,9 @@ const useStyles = makeStyles(() => ({
 
 }));
 
-export const Ingredient = ({ingredient, removeIngredient = f => f}) => {
+export const Ingredient = ({ingredient}) => {
     const classes = useStyles();
+    const {removeIngredient} = useIngredients();
     return (
     <AppBar className={classes.root} position="static">
         <p className={`${classes.itemBox} ${classes.names}`}>{ingredient.name}</p>
