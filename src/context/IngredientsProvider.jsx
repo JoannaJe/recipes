@@ -1,4 +1,4 @@
-import React, {createContext, useState} from "react";
+import React, {createContext, useState, useContext} from "react";
 
 
 const IngredientsContext = createContext();
@@ -27,7 +27,7 @@ const bananas = {
   quantity: 3
 }
 
-
+export const useIngredients = () => useContext(IngredientsContext);
 
 export const IngredientsProvider = ({children}) => {
   const myIngredients = [tomatoes, carrot, garlic, bananas];

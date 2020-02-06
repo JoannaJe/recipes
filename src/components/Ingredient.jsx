@@ -2,8 +2,7 @@ import { AppBar, Avatar } from "@material-ui/core";
 import React from "react";
 import {GoPlus, GoDash, GoX} from "react-icons/go"
 import { makeStyles } from "@material-ui/styles";
-import {IngredientsProvider} from "../context/IngredientsProvider"
-import {useIngredients} from "../hooks/ingredients-hooks";
+import {useIngredients} from "../context/IngredientsProvider"
 
 const useStyles = makeStyles(() => ({
     root: {

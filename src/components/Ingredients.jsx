@@ -1,6 +1,6 @@
 import React from "react";
 import {Ingredient} from "./Ingredient";
-import {useIngredients} from "../hooks/ingredients-hooks";
+import {useIngredients} from "../context/IngredientsProvider";
 
 
 export const Ingredients = () => {
