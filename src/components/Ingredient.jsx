@@ -10,6 +10,9 @@ const useStyles = makeStyles(() => ({
         flexDirection: "row",
         justifyContent: "space-between",
         backgroundColor: "#527a7a",
+        '&:hover': {
+            backgroundColor: "#85adad",
+        },
         margin: "1px",
     },
     itemBox: {
