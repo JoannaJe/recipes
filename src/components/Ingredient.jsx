@@ -1,5 +1,5 @@
-import { AppBar, Avatar } from "@material-ui/core";
-import React from "react";
+import {AppBar, Avatar, TextField} from "@material-ui/core";
+import React, {useState} from "react";
 import {GoPlus, GoDash, GoX} from "react-icons/go"
 import { makeStyles } from "@material-ui/styles";
 import {useIngredients} from "../context/IngredientsProvider"
@@ -9,11 +9,12 @@ const useStyles = makeStyles(() => ({
         display: "flex",
         flexDirection: "row",
         justifyContent: "space-between",
-        backgroundColor: "#527a7a",
+        // backgroundColor: "#819898",
+        backgroundColor: "#819898",
         '&:hover': {
-            backgroundColor: "#85adad",
+            backgroundColor: "#b9c6c6",
         },
-        margin: "1px",
+        marginBottom: "2px",
     },
     itemBox: {
         width: "25%",
@@ -22,33 +23,34 @@ const useStyles = makeStyles(() => ({
     },
     centerElem: {
         display: "flex",
-        justifyContent: "space-around",
+        justifyContent: "flex-end",
         alignItems: "center",
     },
     avatar: {
-        backgroundColor: "#3d5c5c",
+        backgroundColor: "#8da5a5",
     },
     names: {
         textTransform: "uppercase",
     }
-
 }));
 
+
 export const Ingredient = ({ingredient}) => {
+
     const classes = useStyles();
     const {removeIngredient} = useIngredients();
+    // const [showInput, setShowInput] = useState(false);
+    // console.log("showinput: " + showInput);
     return (
     <AppBar className={classes.root} position="static">
         <p className={`${classes.itemBox} ${classes.names}`}>{ingredient.name}</p>
         <p className={classes.itemBox}>{ingredient.unit}</p>
         <p className={classes.itemBox}>{ingredient.quantity}</p>
+        {/*{*/}
+        {/*    showInput ? (<TextField/>) :*/}
+        {/*        (<p className={classes.itemBox} onClick={setShowInput(true)}>{ingredient.quantity}</p>)*/}
+        {/*}*/}
         <div className={`${classes.itemBox} ${classes.centerElem}`}>
-            <Avatar className={classes.avatar}>
-                <GoPlus/>
-            </Avatar>
-            <Avatar className={classes.avatar}>
-                <GoDash/>
-            </Avatar>
             <Avatar className={classes.avatar} onClick={() => removeIngredient(ingredient.name)}>
                 <GoX/>
             </Avatar>

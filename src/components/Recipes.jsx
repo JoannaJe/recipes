@@ -6,7 +6,8 @@ const useStyles = makeStyles(() => ({
     root: {
         display: "flex",
         flexDirection: "column",
-        
+        paddingLeft: "5px",
+        paddingRight: "5px",
 
     }
 }));

@@ -1,26 +1,27 @@
 import React, {useState} from 'react';
-import {Paper, Container, Button} from '@material-ui/core'
+import {Paper, Container, Button, AppBar} from '@material-ui/core'
 import './App.css';
 import {makeStyles} from '@material-ui/styles'
 import { Ingredients } from './components/Ingredients';
 import { Recipes } from './components/Recipes';
+import { MenuTopBar } from './components/MenuTopBar';
+import {MenuBottomBar} from "./components/MenuBottomBar";
 
 const useStyles = makeStyles(() => ({
   root: {
     display: "flex",
     justifyContent: "center",
-    height: "100vmax",
+    height: "50vmax",
+    marginTop: "4px",
   },
   column: {
     margin: "0 auto",
-    width: "100vmin",
+    width: "100%",
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-between",
+
   },
-  button: {
-    backgroundColor: "#334d4d",
-  }
 }));
 
 function App() {
@@ -31,16 +32,16 @@ function App() {
   
   return (
     <>
-    <Container className={classes.root}>
-      <Paper variant="outlined" className={classes.column}>
-        <Ingredients />
-        <Button fullWidth="true" className={classes.button} variant="contained" color="primary">Dodaj składnik</Button>
-      </Paper>
-      <Paper variant="outlined" className={classes.column}>
-        <Recipes recipesList={recipes} />
-        <Button fullWidth="true" className={classes.button} variant="contained" color="primary">Dodaj przepis</Button>
-      </Paper>
-    </Container>
+      <MenuTopBar/>
+      <Container className={classes.root}>
+        <Paper variant="outlined" className={classes.column}>
+          <Ingredients />
+        </Paper>
+        <Paper variant="outlined" className={classes.column}>
+         <Recipes recipesList={recipes} />
+        </Paper>
+      </Container>
+      <MenuBottomBar/>
     </>
   );
 }

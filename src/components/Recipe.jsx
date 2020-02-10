@@ -1,4 +1,4 @@
-import {Card, CardContent, Typography, Avatar, CardMedia} from "@material-ui/core";
+import {Card, CardContent, Typography, CardMedia} from "@material-ui/core";
 import React from "react"
 import { makeStyles } from "@material-ui/styles";
 
@@ -9,16 +9,16 @@ const useStyles = makeStyles(() => ({
             backgroundColor: "#b3b3b3",
         },
         height: "100%",
-        margin: "3px",
+        marginBottom: "3px",
         display: "flex",
+        alignItems: "center",
     },
     title: {
         fontFamily: "Helvetica",
         textTransform: "uppercase",
     },
     media: {
-        height: 0,
-        paddingTop: "20%",
+        height: "100%",
         width: "40%",
     },
     titleBlock: {
