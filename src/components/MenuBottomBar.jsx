@@ -10,10 +10,11 @@ const useStyles = makeStyles(() => ({
     flexDirection: "row",
     justifyContent: "flex-end",
     padding: "15px",
-    backgroundColor: "#b9c6c6",
+    backgroundColor: "#d9d9d9",
+    height: "70px",
   },
   button: {
-    backgroundColor: "#819898",
+    backgroundColor: "#808080",
     width: "100%",
     marginLeft: "20px",
     marginRight: "20px",

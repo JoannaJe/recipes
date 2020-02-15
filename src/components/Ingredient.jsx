@@ -10,16 +10,17 @@ const useStyles = makeStyles(() => ({
         flexDirection: "row",
         justifyContent: "space-between",
         // backgroundColor: "#819898",
-        backgroundColor: "#819898",
+        backgroundColor: "#f2f2f2",
         '&:hover': {
-            backgroundColor: "#b9c6c6",
+            backgroundColor: "#cccccc",
         },
-        marginBottom: "2px",
+        marginBottom: "1px",
     },
     itemBox: {
         width: "25%",
         paddingLeft: "10px",
         paddingRight: "10px",
+        color: "#595959",
     },
     centerElem: {
         display: "flex",
@@ -27,7 +28,7 @@ const useStyles = makeStyles(() => ({
         alignItems: "center",
     },
     avatar: {
-        backgroundColor: "#8da5a5",
+        backgroundColor: "#b3b3b3",
     },
     names: {
         textTransform: "uppercase",
@@ -39,17 +40,22 @@ export const Ingredient = ({ingredient}) => {
 
     const classes = useStyles();
     const {removeIngredient} = useIngredients();
-    // const [showInput, setShowInput] = useState(false);
-    // console.log("showinput: " + showInput);
+    const [showInput, setShowInput] = useState(false);
+    console.log("showinput: " + showInput);
     return (
     <AppBar className={classes.root} position="static">
         <p className={`${classes.itemBox} ${classes.names}`}>{ingredient.name}</p>
         <p className={classes.itemBox}>{ingredient.unit}</p>
-        <p className={classes.itemBox}>{ingredient.quantity}</p>
-        {/*{*/}
-        {/*    showInput ? (<TextField/>) :*/}
-        {/*        (<p className={classes.itemBox} onClick={setShowInput(true)}>{ingredient.quantity}</p>)*/}
-        {/*}*/}
+        {
+           showInput ? (<TextField placeholder={ingredient.quantity}/>) :
+            (<p className={classes.itemBox} 
+                onClick={
+                    () =>
+                    setShowInput(true)
+                }>
+                {ingredient.quantity}
+            </p>)
+        }
         <div className={`${classes.itemBox} ${classes.centerElem}`}>
             <Avatar className={classes.avatar} onClick={() => removeIngredient(ingredient.name)}>
                 <GoX/>

@@ -6,8 +6,8 @@ const useStyles = makeStyles(() => ({
     root: {
         display: "flex",
         flexDirection: "column",
-        paddingLeft: "5px",
-        paddingRight: "5px",
+        paddingLeft: "0px",
+        paddingRight: "0px",
 
     }
 }));
@@ -16,8 +16,8 @@ export const Recipes = ({recipesList}) => {
     const classes = useStyles();
     return (
         <div className={classes.root}>
-        {recipesList.map((name, i) => {
-            return (<Recipe key={i} name={name} />);
+        {recipesList.map((recipe, i) => {
+            return (<Recipe key={i} name={recipe.name} />);
         })}
         </div>
     );

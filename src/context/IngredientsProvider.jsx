@@ -29,8 +29,9 @@ const bananas = {
 
 export const useIngredients = () => useContext(IngredientsContext);
 
-export const IngredientsProvider = ({children}) => {
-  const myIngredients = [tomatoes, carrot, garlic, bananas];
+export const IngredientsProvider = ({children, ingredientsData}) => {
+  // const myIngredients = [tomatoes, carrot, garlic, bananas];
+  const myIngredients = ingredientsData;
   const [ingredients, setIngredients] = useState(myIngredients);
   const removeIngredient = name => setIngredients(ingredients.filter(ingr => ingr.name !== name));
   return (
